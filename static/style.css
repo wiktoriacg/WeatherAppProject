@@ -1,0 +1,152 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa;
+    text-align: center;
+    padding: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.container {
+    background-color: rgba(143, 188, 207, 0.78);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+input {
+    padding: 10px;
+    width: 200px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#weatherResult {
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+#temperature {
+    font-size: 24px;
+    color: #274d88;
+}
+
+#description {
+    font-size: 18px;
+    color: #274d88;
+}
+
+#icon {
+    width: 100px;  /* Ustaw szerokość ikony */
+    height: 100px; /* Ustaw wysokość ikony */
+    display: none;  /* Ukrywa ikonę przed załadowaniem danych */
+}
+/* Styl dla górnego paska */
+.topbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #6aa6c1; /* Jaśniejszy, mniej intensywny niebieski */
+    padding: 5px 15px;
+    display: flex;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    z-index: 1000;
+    background: linear-gradient(90deg, #6aa6c1, #4a90a4); /* Gradient zamiast jednolitego koloru */
+}
+
+/* Styl dla przycisku rozwijanej listy */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-button {
+    background-color: #8fc4d9;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #8fc4d9, #6aa6c1);
+}
+
+/* Styl dla opcji rozwijanej listy */
+.dropdown-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #9ac4d8;
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    max-width: 350px;  /* Ogranicza szerokość listy */
+    width: 200%;       /* Zapewnia, że lista będzie się rozciągać do maksymalnej szerokości */
+}
+
+/* Styl dla każdej opcji z kropką przed nazwą */
+.dropdown-options label {
+    display: flex;
+    align-items: center;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 5px; /* Odstęp między liniami */
+}
+
+.dropdown-options input[type="radio"] {
+    margin-right: 6px; /* Odstęp między kropką a nazwą */
+}
+.dropdown-options button {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 8px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #82b3c9;
+    transition: 0.3s ease-in-out;
+}
+
+.dropdown-options button:hover {
+    background-color: #9ac4d8;
+    color: #0d62b5;
+}
+body {
+    background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.4)),
+                url('/static/images/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; /* Zapewnia efekt tła, które nie przewija się z treścią */
+}
+h1 {
+    background: linear-gradient(to right, #1e3a8a, #3b82f6); /* Gradient od ciemnoniebieskiego do jasnego niebieskiego */
+    -webkit-background-clip: text; /* Użycie gradientu tylko na tekście */
+    color: transparent; /* Ukrywa domyślny kolor tekstu */
+    font-size: 3em; /* Zwiększ rozmiar czcionki */
+    font-weight: bold; /* Wyróżnia tekst */
+}
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}

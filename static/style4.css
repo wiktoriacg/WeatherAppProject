@@ -1,0 +1,145 @@
+/* style3.css */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #e0f7fa, #aed581); /* Gradient przypominający niebo */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3.5em;
+    background: linear-gradient(90deg, #004d40, #00bfa5);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+form {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    width: 250px;
+    border: 2px solid #00796b;
+    border-radius: 8px;
+    outline: none;
+}
+input:focus {
+    border-color: #004d40;
+    box-shadow: 0 0 8px rgba(0, 77, 64, 0.5);
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background: #004d40;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+button:hover {
+    background: #00796b;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #00796b;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+tbody tr:nth-child(odd) {
+    background-color: #e0f2f1;
+}
+
+tbody tr:hover {
+    background-color: #b2dfdb;
+    cursor: pointer;
+}
+#pollutionResult {
+    margin-top: 20px;
+}
+#pollutionResult {
+    margin-top: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#pollutionResult h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #00796b;
+}
+
+#pollutionResult p {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+#backButton {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #004d40;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s, transform 0.2s;
+}
+
+#backButton:hover {
+    background: #00796b;
+    transform: scale(1.05);
+}
+table {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

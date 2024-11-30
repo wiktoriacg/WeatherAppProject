@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather forecast</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Górny pasek nawigacyjny -->
+    <div class="topbar">
+        <div class="dropdown">
+            <button class="dropdown-button" onclick="toggleDropdown()">Maps</button>
+            <div id="dropdownOptions" class="dropdown-options" style="display: none;">
+                <button type="button" style="display: block; margin-bottom: 5px;" onclick="window.location.href='/index3?layer=clouds'">Clouds</button>
+                <button type="button" style="display: block;" onclick="window.location.href='/index3?layer=precipitation'">Precipitation</button>
+                <button type="button" style="display: block;" onclick="window.location.href='/index3?layer=pressure'">Sea level pressue</button>
+                <button type="button" style="display: block;" onclick="window.location.href='/index3?layer=wind'">Wind Speed</button>
+                <button type="button" style="display: block;" onclick="window.location.href='/index3?layer=temp'">Temperature</button>
+            </div>
+            <button class="dropdown-button" onclick="window.location.href='/index4'">Pollution</button>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <div class="container">
+        <h1>Weather forecast</h1>
+        <form id="weatherForm" onsubmit="return submitForm();">
+            <input type="text" id="city" placeholder="Enter city" required>
+            <button type="submit">Find</button>
+        </form>
+        <div id="weatherResult">
+            <h2 id="cityName"></h2>
+            <p id="temperature"></p>
+            <p id="description"></p>
+            <img id="icon" alt="" style="display:none;" />
+            <button id="goToIndex2" style="display:none;" onclick="goToIndex2()">Go to the five-day forecast</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        function toggleDropdown() {
+            const dropdownOptions = document.getElementById('dropdownOptions');
+            dropdownOptions.style.display = dropdownOptions.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

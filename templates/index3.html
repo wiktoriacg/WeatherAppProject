@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather maps</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style3.css') }}" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <h1 id="mapTitle">Mapa pogodowa</h1>
+    <div id="mapContainer"></div>
+
+    <!-- Przycisk powrotu do index.html -->
+    <button id="backButton" onclick="window.location.href='/';">Return to home page</button>
+
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const layer = urlParams.get('layer');
+            const apiKey = '{{ api_key }}'; // Zmienna API key z Flask
+
+            const layerNames = {
+                'clouds': 'Clouds',
+                'precipitation': 'Precipitation',
+                'pressure': 'Sea level pressure',
+                'wind': 'Wind speed',
+                'temp': 'Temperature'
+            };
+
+            // Zmiana tekstu w nagłówku
+            const mapTitle = document.getElementById('mapTitle');
+            if (layer && layerNames[layer]) {
+                mapTitle.textContent = `${layerNames[layer]}`;
+            } else {
+                mapTitle.textContent = 'Weather map';
+            }
+            // Inicjalizacja mapy
+            const map = L.map('mapContainer').setView([51.505, -0.09], 2); // Przykładowe współrzędne
+
+            // Dodanie warstwy mapy (OpenStreetMap jako tło)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+            // Dodanie warstwy pogodowej
+            const layers = {
+                'clouds': 'clouds_new',
+                'precipitation': 'precipitation_new',
+                'pressure': 'pressure_new',
+                'wind': 'wind_new',
+                'temp': 'temp_new'
+            };
+
+            // Jeśli warstwa jest prawidłowa, dodaj ją do mapy
+            if (layers[layer]) {
+                L.tileLayer(`https://tile.openweathermap.org/map/${layers[layer]}/{z}/{x}/{y}.png?appid=${apiKey}`, {
+                    opacity: 0.7, // Zwiększenie przezroczystości warstwy
+                    zIndex: 1     // Możliwość wyświetlania na wierzchu
+                }).addTo(map);
+            } else {
+                alert("Invalid map layer.");
+            }
+        };
+    </script>
+</body>
+</html>
